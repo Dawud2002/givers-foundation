@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs - GENEROUS GIVER FOUNDATION</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0E8388;
+            --secondary: #CBE4DE;
+            --accent: #FFD700;
+            --dark: #2C3333;
+            --light: #F5F7F8;
+            --text: #2E2E2E;
+            --text-light: #6B7280;
+            --font-main: 'Poppins', sans-serif;
+            --font-arabic: 'Amiri', serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo img {
+            height: 40px;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text h1 {
+            font-size: 1.2rem;
+        }
+        
+        .logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text p {
+            font-size: 0.7rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+            font-weight: 600;
+        }
+        
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 131, 136, 0.4);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Programs Hero Section */
+        .programs-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .programs-hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .programs-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .programs-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        /* Programs Section */
+        .programs-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-card:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .program-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+        
+        .program-content {
+            padding: 2rem;
+        }
+        
+        .program-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .program-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .program-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid var(--secondary);
+            border-bottom: 1px solid var(--secondary);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item span {
+            display: block;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .stat-item small {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .program-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+        }
+        
+        .program-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 131, 136, 0.4);
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            background: linear-gradient(135deg, var(--secondary), #e0f0ee);
+            padding: 6rem 0;
+            margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .impact-stat {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .impact-stat:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .impact-stat i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .impact-stat span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-stat p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--secondary);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: serif;
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .testimonial-location {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .footer-logo-text h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .footer-logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 0.2rem;
+        }
+        
+        .social-links-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links-footer a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links-footer a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .programs-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .donate-btn {
+                display: none;
+            }
+            
+            .programs-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .programs-hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .program-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .testimonial-card::before {
+                font-size: 4rem;
+                top: 5px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                <div class="logo-text">
+                    <h1>GENEROUS GIVER FOUNDATION</h1>
+                    <p>Islamic Charity for the Needy</p>
+                </div>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="donate-btn" onclick="window.location.href='donate.html'">Donate Now</button>
+            <button class="mobile-menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Programs Hero Section -->
+    <section class="programs-hero" data-aos="fade">
+        <div class="programs-hero-content">
+            <h1>Our Impactful Programs</h1>
+            <p>"The believer's shade on the Day of Resurrection will be his charity." (Al-Tirmidhi)</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Initiatives</h2>
+                <p>We offer a variety of programs designed to address the most pressing needs in our communities, guided by Islamic principles of charity and social justice</p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Food Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Food Security Program</h3>
+                        <p>Our food security program provides nutritious meals to families in need, distributes food packages during Ramadan, and supports local food banks.</p>
+                        <div class="program-stats">
+                            <div class="stat-item">
+                                <span>5,000+</span>
+                                <small>Meals Served</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>12</span>
+                                <small>Communities</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>Monthly</span>
+                                <small>Frequency</small>
+                            </div>
+                        </div>
+                        <a href="donate.html" class="program-btn">Support This Program</a>
+                    </div>
+                </div>
+
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Education Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Education Support</h3>
+                        <p>We provide scholarships, school supplies, and educational resources to students from disadvantaged backgrounds, ensuring they have access to quality education.</p>
+                        <div class="program-stats">
+                            <div class="stat-item">
+                                <span>200+</span>
+                                <small>Students</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>15</span>
+                                <small>Schools</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>Annual</span>
+                                <small>Scholarships</small>
+                            </div>
+                        </div>
+                        <a href="donate.html" class="program-btn">Support This Program</a>
+                    </div>
+                </div>
+
+                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Healthcare Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Healthcare Initiative</h3>
+                        <p>Our healthcare program provides medical check-ups, medications, and health education to communities with limited access to healthcare services.</p>
+                        <div class="program-stats">
+                            <div class="stat-item">
+                                <span>3,000+</span>
+                                <small>Patients</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>8</span>
+                                <small>Clinics</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>Quarterly</span>
+                                <small>Check-ups</small>
+                            </div>
+                        </div>
+                        <a href="donate.html" class="program-btn">Support This Program</a>
+                    </div>
+                </div>
+
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Emergency Relief">
+                    </div>
+                    <div class="program-content">
+                        <h3>Emergency Relief</h3>
+                        <p>We respond to natural disasters and emergencies by providing immediate assistance, including shelter, food, water, and medical supplies to affected communities.</p>
+                        <div class="program-stats">
+                            <div class="stat-item">
+                                <span>10+</span>
+                                <small>Disasters</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>5,000+</span>
+                                <small>Families</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>24/7</span>
+                                <small>Response</small>
+                            </div>
+                        </div>
+                        <a href="donate.html" class="program-btn">Support This Program</a>
+                    </div>
+                </div>
+
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Orphan Support">
+                    </div>
+                    <div class="program-content">
+                        <h3>Orphan Support</h3>
+                        <p>Our orphan support program provides financial assistance, education, healthcare, and emotional support to orphaned children, ensuring they have a bright future.</p>
+                        <div class="program-stats">
+                            <div class="stat-item">
+                                <span>150+</span>
+                                <small>Orphans</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>Monthly</span>
+                                <small>Support</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>Long-term</span>
+                                <small>Commitment</small>
+                            </div>
+                        </div>
+                        <a href="donate.html" class="program-btn">Support This Program</a>
+                    </div>
+                </div>
+
+                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Water Projects">
+                    </div>
+                    <div class="program-content">
+                        <h3>Water Projects</h3>
+                        <p>We build wells, water filtration systems, and sanitation facilities in communities facing water scarcity, providing access to clean and safe drinking water.</p>
+                        <div class="program-stats">
+                            <div class="stat-item">
+                                <span>50+</span>
+                                <small>Wells</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>10,000+</span>
+                                <small>Beneficiaries</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>5</span>
+                                <small>Countries</small>
+                            </div>
+                        </div>
+                        <a href="donate.html" class="program-btn">Support This Program</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Impact</h2>
+                <p>The difference we've made in communities around the world through our programs</p>
+            </div>
+            <div class="impact-stats">
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-users"></i>
+                    <span>50,000+</span>
+                    <p>Lives Touched</p>
+                </div>
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>15</span>
+                    <p>Countries</p>
+                </div>
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>$2M+</span>
+                    <p>Funds Distributed</p>
+                </div>
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-mosque"></i>
+                    <span>100+</span>
+                    <p>Partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>What People Say</h2>
+                <p>Hear from those who have benefited from our programs and initiatives</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-text">"The food packages provided by GENEROUS GIVER FOUNDATION during Ramadan were a blessing for my family. We are grateful for their support during difficult times."</p>
+                    <p class="testimonial-author">Aisha Ahmed</p>
+                    <p class="testimonial-location">Local Community Member</p>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-text">"Thanks to the scholarship from GENEROUS GIVER FOUNDATION, I was able to complete my education and now have a stable job. Their support changed my life."</p>
+                    <p class="testimonial-author">Mohammed Hassan</p>
+                    <p class="testimonial-location">Scholarship Recipient</p>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p class="testimonial-text">"The healthcare initiative brought much-needed medical services to our remote village. Many lives were saved because of their intervention."</p>
+                    <p class="testimonial-author">Dr. Sarah Johnson</p>
+                    <p class="testimonial-location">Healthcare Partner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                        <div class="footer-logo-text">
+                            <h3>GENEROUS GIVER FOUNDATION</h3>
+                            <p>Islamic Charity for the Needy</p>
+                        </div>
+                    </div>
+                    <div class="footer-about">
+                        <p>We are a non-profit organization dedicated to serving the needy through Islamic principles of charity, compassion, and social justice.</p>
+                    </div>
+                    <div class="social-links-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Food Distribution</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Orphan Sponsorship</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Water Wells</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Islamic Education</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Emergency Relief</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, Accra, Ghana</p>
+                        <p><i class="fas fa-phone"></i> +233 599 012 288</p>
+                        <p><i class="fas fa-envelope"></i> info@generousgiverfoundation.org</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GENEROUS GIVER FOUNDATION. All rights reserved. | Charity Registration Number: CG123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

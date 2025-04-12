@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENEROUS GIVER FOUNDATION - Islamic Charity for the Needy</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0E8388;
+            --secondary: #CBE4DE;
+            --accent: #FFD700;
+            --dark: #2C3333;
+            --light: #F5F7F8;
+            --text: #2E2E2E;
+            --text-light: #6B7280;
+            --font-main: 'Poppins', sans-serif;
+            --font-arabic: 'Amiri', serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo img {
+            height: 40px;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text h1 {
+            font-size: 1.2rem;
+        }
+        
+        .logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text p {
+            font-size: 0.7rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+            font-weight: 600;
+        }
+        
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 131, 136, 0.4);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .hero-btn {
+            background: linear-gradient(135deg, var(--accent), #e6c200);
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .hero-btn.outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+        
+        .hero-btn.outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-family: var(--font-arabic);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        /* Programs Section */
+        .programs-section {
+            padding: 6rem 0;
+            background-color: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+        
+        .program-content {
+            padding: 2rem;
+        }
+        
+        .program-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .program-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .program-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .program-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .program-link:hover {
+            color: var(--dark);
+        }
+        
+        .program-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--secondary), #e0f0ee);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .testimonials-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .testimonial-card {
+            min-width: 350px;
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            scroll-snap-align: start;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .footer-logo-text h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .footer-logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 0.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .donate-btn {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-btn {
+                width: 100%;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .testimonial-card {
+                min-width: 280px;
+                padding: 2rem 1.5rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <!-- Logo image - replace with your actual logo file -->
+                <img src="images/logo.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                <div class="logo-text">
+                    <h1>GENEROUS GIVER FOUNDATION</h1>
+                    <p>Islamic Charity for the Needy</p>
+                </div>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="donate-btn" onclick="window.location.href='donate.html'">Donate Now</button>
+            <button class="mobile-menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 30px; height: 30px; top: 20%; left: 10%;"></div>
+            <div class="floating-element" style="width: 50px; height: 50px; top: 70%; left: 80%;"></div>
+            <div class="floating-element" style="width: 40px; height: 40px; top: 40%; left: 60%;"></div>
+            <div class="floating-element" style="width: 25px; height: 25px; top: 80%; left: 30%;"></div>
+            <div class="floating-element" style="width: 35px; height: 35px; top: 30%; left: 50%;"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Empowering Lives Through Islamic Charity</h1>
+            <p>Join us in our mission to alleviate poverty, provide education, and bring hope to those in need according to the principles of Zakat and Sadaqah.</p>
+            <div class="hero-buttons">
+                <button class="hero-btn" onclick="window.location.href='donate.html'">Donate Now</button>
+                <button class="hero-btn outline" onclick="window.location.href='programs.html'">Our Programs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" data-aos="fade-up">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">People Helped</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="120">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Communities Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">Volunteers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Charity Programs</h2>
+                <p>We run various programs designed to address different needs in our communities, all based on Islamic principles of charity and social welfare.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd59a93c6138?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Food Distribution">
+                    </div>
+                    <div class="program-content">
+                        <h3>Food for Families</h3>
+                        <p>Providing nutritious meals to underprivileged families during Ramadan and throughout the year, following the Sunnah of feeding the hungry.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Education Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Islamic Education</h3>
+                        <p>Sponsoring Islamic education for children in need, ensuring they learn the Quran and Sunnah while receiving quality secular education.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Water Well">
+                    </div>
+                    <div class="program-content">
+                        <h3>Water for Life</h3>
+                        <p>Building wells and water systems in drought-affected areas, fulfilling the noble act of providing clean water as ongoing charity (Sadaqah Jariyah).</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stories of Impact</h2>
+                <p>Hear from those whose lives have been transformed through our charity programs.</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Because of the Generous Giver Foundation, my children can now attend school with full stomachs and proper supplies. This charity embodies the true spirit of Zakat."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Amina Mohammed">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amina Mohammed</h4>
+                            <p>Beneficiary, Accra</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The water well built in our village has changed our lives. Now we have clean water for drinking, cooking, and wudu. May Allah reward those who donated."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ibrahim Diallo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ibrahim Diallo</h4>
+                            <p>Village Elder, Tamale</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a donor, I'm impressed by the transparency and impact of Generous Giver Foundation. I receive regular updates about how my Sadaqah is being used."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fatima Al-Hassan">
+                        </div>
+                        <div class="author-info">
+                            <h4>Fatima Al-Hassan</h4>
+                            <p>Donor, Kumasi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The orphan sponsorship program gave me hope when I had none. Now I'm in university studying to become a doctor, all thanks to this foundation."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Yusuf Abdullah">
+                        </div>
+                        <div class="author-info">
+                            <h4>Yusuf Abdullah</h4>
+                            <p>Orphan Program Graduate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Your Charity Can Change Lives</h2>
+                <p>In the Quran, Allah promises to multiply the rewards for those who give in charity. Your donation today can provide food, water, education, and hope to those in desperate need.</p>
+                <button class="hero-btn" onclick="window.location.href='donate.html'">Give Charity Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                        <div class="footer-logo-text">
+                            <h3>GENEROUS GIVER FOUNDATION</h3>
+                            <p>Islamic Charity for the Needy</p>
+                        </div>
+                    </div>
+                    <div class="footer-about">
+                        <p>We are a non-profit organization dedicated to serving the needy through Islamic principles of charity, compassion, and social justice.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Food Distribution</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Orphan Sponsorship</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Water Wells</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Islamic Education</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Emergency Relief</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, Accra, Ghana</p>
+                        <p><i class="fas fa-phone"></i> +233 599 012 288</p>
+                        <p><i class="fas fa-envelope"></i> info@generousgiverfoundation.org</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GENEROUS GIVER FOUNDATION. All rights reserved. | Charity Registration Number: CG123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Counter animation for stats
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Start counter animation when stats section is in view
+        const statsSection = document.querySelector('.stats-section');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.unobserve(statsSection);
+            }
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+        
+        // Create floating elements dynamically
+        const floatingContainer = document.querySelector('.floating-elements');
+        for (let i = 0; i < 10; i++) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element');
+            element.style.width = `${Math.random() * 30 + 20}px`;
+            element.style.height = element.style.width;
+            element.style.top = `${Math.random() * 100}%`;
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.animationDuration = `${Math.random() * 20 + 10}s`;
+            element.style.animationDelay = `${Math.random() * 5}s`;
+            floatingContainer.appendChild(element);
+        }
+    </script>
+</body>
+</html>

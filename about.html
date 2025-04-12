@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GENEROUS GIVER FOUNDATION</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0E8388;
+            --secondary: #CBE4DE;
+            --accent: #FFD700;
+            --dark: #2C3333;
+            --light: #F5F7F8;
+            --text: #2E2E2E;
+            --text-light: #6B7280;
+            --font-main: 'Poppins', sans-serif;
+            --font-arabic: 'Amiri', serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo img {
+            height: 40px;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text h1 {
+            font-size: 1.2rem;
+        }
+        
+        .logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text p {
+            font-size: 0.7rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+            font-weight: 600;
+        }
+        
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 131, 136, 0.4);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .about-hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .about-hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 500px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+            z-index: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .mission, .vision {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .mission:hover, .vision:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission:before, .vision:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .mission h3, .vision h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .mission h3 i, .vision h3 i {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+        
+        .mission p, .vision p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(135deg, var(--secondary), #e0f0ee);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-item i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .value-item h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .value-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 6rem 0;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member-image {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .team-member-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-member-info {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .team-member-info h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member-info p {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .team-member-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 1rem 3rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 2rem;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even):after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .timeline-year {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .timeline-desc {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(14, 131, 136, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .footer-logo-text h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .footer-logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 0.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .about-hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline:before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:after {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(even):after {
+                left: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .donate-btn {
+                display: none;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                height: 400px;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .team-member-image {
+                height: 300px;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                <div class="logo-text">
+                    <h1>GENEROUS GIVER FOUNDATION</h1>
+                    <p>Islamic Charity for the Needy</p>
+                </div>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="donate-btn" onclick="window.location.href='donate.html'">Donate Now</button>
+            <button class="mobile-menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero" data-aos="fade">
+        <div class="about-hero-content">
+            <h1>Our Story & Mission</h1>
+            <p>Discover the journey of Generous Giver Foundation and our commitment to serving humanity through Islamic principles</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>About Our Foundation</h2>
+                <p>We are dedicated to serving humanity through Islamic principles of charity, compassion, and social justice.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd59a93c6138?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="GENEROUS GIVER FOUNDATION Team">
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Our Humble Beginnings</h3>
+                    <p>GENEROUS GIVER FOUNDATION was established in 2010 with a vision to create positive change in communities through Islamic charitable giving. What began as a small local initiative has grown into a global organization that has touched the lives of thousands.</p>
+                    <p>Our journey is guided by the Islamic principles of Zakat, Sadaqah, and Waqf. We believe that giving is not just a duty but a privilege that brings us closer to Allah (SWT) and strengthens our communities.</p>
+                    <p>Over the years, we have expanded our programs to address various needs including food security, education, healthcare, and emergency relief. Our work is made possible by the generous support of donors who share our vision of a more equitable world.</p>
+                </div>
+            </div>
+
+            <div class="mission-vision">
+                <div class="mission" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <p>To alleviate poverty and suffering through Islamic charitable giving, empowering communities to build a better future for themselves and future generations.</p>
+                </div>
+                <div class="vision" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                    <p>A world where every person has access to basic necessities, education, and opportunities to thrive, guided by Islamic principles of compassion and social justice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Core Values</h2>
+                <p>These principles guide every decision we make and every action we take</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h4>Compassion</h4>
+                    <p>We approach our work with genuine care and empathy for those we serve, following the example of the Prophet Muhammad (PBUH).</p>
+                </div>
+                <div class="value-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Justice</h4>
+                    <p>We strive for fairness and equity in all our programs and operations, upholding the Islamic principle of Adl (justice).</p>
+                </div>
+                <div class="value-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Integrity</h4>
+                    <p>We maintain the highest standards of transparency and ethical conduct, ensuring Amanah (trustworthiness) in all we do.</p>
+                </div>
+                <div class="value-item" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-users"></i>
+                    <h4>Community</h4>
+                    <p>We believe in the power of collective action and community engagement, fostering the Islamic concept of Ummah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Meet Our Leadership</h2>
+                <p>The dedicated team guiding our organization with wisdom and compassion</p>
+            </div>
+            <div class="team-members">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Dr. Ahmed Hassan">
+                    </div>
+                    <div class="team-member-info">
+                        <h4>Dr. Ahmed Hassan</h4>
+                        <p>Executive Director</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" alt="Fatima Rahman">
+                    </div>
+                    <div class="team-member-info">
+                        <h4>Fatima Rahman</h4>
+                        <p>Programs Director</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Omar Khalid">
+                    </div>
+                    <div class="team-member-info">
+                        <h4>Omar Khalid</h4>
+                        <p>Finance Director</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Journey</h2>
+                <p>Key milestones in our growth and impact</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3 class="timeline-title">Foundation Established</h3>
+                        <p class="timeline-desc">Founded with a small team of volunteers to address local poverty through Islamic charitable principles.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <h3 class="timeline-title">First Orphan Sponsorship</h3>
+                        <p class="timeline-desc">Launched our orphan sponsorship program, supporting 50 children in its first year.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Water Wells Initiative</h3>
+                        <p class="timeline-desc">Built our first 10 water wells in drought-affected regions, providing clean water to thousands.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3 class="timeline-title">International Expansion</h3>
+                        <p class="timeline-desc">Expanded operations to three additional countries, increasing our global impact.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="timeline-title">10,000 Lives Impacted</h3>
+                        <p class="timeline-desc">Reached the milestone of positively impacting over 10,000 lives through our various programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Join Us in Making a Difference</h2>
+                <p>Your support enables us to continue our vital work in serving those in need. Whether through donations, volunteering, or spreading awareness, every contribution matters.</p>
+                <button class="cta-btn" onclick="window.location.href='donate.html'">Support Our Cause</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                        <div class="footer-logo-text">
+                            <h3>GENEROUS GIVER FOUNDATION</h3>
+                            <p>Islamic Charity for the Needy</p>
+                        </div>
+                    </div>
+                    <div class="footer-about">
+                        <p>We are a non-profit organization dedicated to serving the needy through Islamic principles of charity, compassion, and social justice.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Food Distribution</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Orphan Sponsorship</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Water Wells</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Islamic Education</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Emergency Relief</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, Accra, Ghana</p>
+                        <p><i class="fas fa-phone"></i> +233 599 012 288</p>
+                        <p><i class="fas fa-envelope"></i> info@generousgiverfoundation.org</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GENEROUS GIVER FOUNDATION. All rights reserved. | Charity Registration Number: CG123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - GENEROUS GIVER FOUNDATION</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0E8388;
+            --secondary: #CBE4DE;
+            --accent: #FFD700;
+            --dark: #2C3333;
+            --light: #F5F7F8;
+            --text: #2E2E2E;
+            --text-light: #6B7280;
+            --font-main: 'Poppins', sans-serif;
+            --font-arabic: 'Amiri', serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo img {
+            height: 40px;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text h1 {
+            font-size: 1.2rem;
+        }
+        
+        .logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text p {
+            font-size: 0.7rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+            font-weight: 600;
+        }
+        
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 131, 136, 0.4);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Donation Hero Section */
+        .donation-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .donation-hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .donation-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .donation-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        /* Donation Section */
+        .donation-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .donation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        
+        .donation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .donation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .donation-card:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .donation-header {
+            margin-bottom: 2rem;
+        }
+        
+        .donation-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .donation-header p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .donation-option {
+            padding: 1rem;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(14, 131, 136, 0.1);
+        }
+        
+        .donation-option:hover {
+            background: rgba(14, 131, 136, 0.2);
+        }
+        
+        .donation-option.selected {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(14, 131, 136, 0.3);
+        }
+        
+        .custom-amount {
+            margin-bottom: 2rem;
+        }
+        
+        .custom-amount label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .custom-amount input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--secondary);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-amount input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(14, 131, 136, 0.2);
+        }
+        
+        .donate-now-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 131, 136, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .donate-now-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 131, 136, 0.4);
+        }
+        
+        .donation-info {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .donation-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .donation-info p {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .donation-info ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .donation-info li {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        /* Payment Methods */
+        .payment-methods {
+            margin-top: 3rem;
+        }
+        
+        .payment-methods h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .method-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .method-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .method-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .method-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .method-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        
+        .momo-instructions {
+            margin-bottom: 2rem;
+        }
+        
+        .momo-instructions h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .momo-instructions ol {
+            margin-left: 1.5rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        .momo-instructions li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .momo-instructions strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            background: linear-gradient(135deg, var(--primary), #0a6b6f);
+            padding: 6rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .impact-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .impact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .impact-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .impact-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-arabic);
+        }
+        
+        .impact-item p {
+            opacity: 0.9;
+        }
+        
+        /* Zakat Info */
+        .zakat-info {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 6rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .zakat-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .zakat-info p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .footer-logo-text h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .footer-logo-text p {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 0.2rem;
+        }
+        
+        .social-links-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links-footer a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links-footer a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .donation-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .donate-btn {
+                display: none;
+            }
+            
+            .donation-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .donation-hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .donation-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .method-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                <div class="logo-text">
+                    <h1>GENEROUS GIVER FOUNDATION</h1>
+                    <p>Islamic Charity for the Needy</p>
+                </div>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="donate-btn" onclick="window.location.href='donate.html'">Donate Now</button>
+            <button class="mobile-menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Donation Hero Section -->
+    <section class="donation-hero" data-aos="fade">
+        <div class="donation-hero-content">
+            <h1>Give With Generosity</h1>
+            <p>"The example of those who spend their wealth in the Way of Allah is like that of a grain which grows seven spikes; in each spike is a hundred grains." (Quran 2:261)</p>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Make a Donation</h2>
+                <p>Your contribution helps us continue our mission of serving those in need through Islamic principles of charity</p>
+            </div>
+
+            <div class="donation-container">
+                <div class="donation-card" data-aos="fade-right">
+                    <div class="donation-header">
+                        <h3>Quick Donation</h3>
+                        <p>Select an amount to donate instantly</p>
+                    </div>
+
+                    <div class="donation-options">
+                        <div class="donation-option" data-amount="50">₵50</div>
+                        <div class="donation-option" data-amount="100">₵100</div>
+                        <div class="donation-option" data-amount="200">₵200</div>
+                        <div class="donation-option" data-amount="500">₵500</div>
+                    </div>
+
+                    <div class="custom-amount">
+                        <label for="amount">Or enter custom amount:</label>
+                        <input type="number" id="amount" placeholder="Enter amount in cedis">
+                    </div>
+
+                    <button class="donate-now-btn" onclick="processDonation()">Donate Now</button>
+
+                    <div class="donation-info">
+                        <h3>Zakat Donations</h3>
+                        <p>For Zakat donations, please ensure you have calculated your Zakat correctly before donating. Consult with your local Islamic scholar if needed.</p>
+                        <p>All Zakat donations are distributed 100% to eligible recipients according to Islamic guidelines.</p>
+                    </div>
+                </div>
+
+                <div class="donation-card" data-aos="fade-left">
+                    <div class="donation-header">
+                        <h3>Mobile Money Payment</h3>
+                        <p>Donate instantly via Mobile Money (MoMo)</p>
+                    </div>
+
+                    <div class="momo-instructions">
+                        <h4>How to Donate via MoMo:</h4>
+                        <ol>
+                            <li>Dial *170# on your mobile device</li>
+                            <li>Select "MoMo Pay & Pay Bill"</li>
+                            <li>Choose "MoMo Pay"</li>
+                            <li>Enter Merchant ID: <strong>030059</strong></li>
+                            <li>Enter the amount you wish to donate</li>
+                            <li>Enter your MoMo PIN to confirm</li>
+                        </ol>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h3>Other Payment Methods</h3>
+                        <div class="method-cards">
+                            <div class="method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <h4>Bank Transfer</h4>
+                                <p>Account: 1234567890<br>Bank: Ghana Commercial Bank<br>Branch: Accra Main</p>
+                            </div>
+                            <div class="method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <h4>Credit/Debit Card</h4>
+                                <p>Secure online payment via Visa, Mastercard or other major cards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Donation's Impact</h2>
+                <p>See how your generosity transforms lives in accordance with Islamic principles</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <i class="fas fa-bread-slice"></i>
+                    <h3>500+</h3>
+                    <p>Families fed during Ramadan</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-mosque"></i>
+                    <h3>30</h3>
+                    <p>Water wells built in needy communities</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>120</h3>
+                    <p>Orphans sponsored for education</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-home"></i>
+                    <h3>25</h3>
+                    <p>Families supported with housing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zakat Info Section -->
+    <section class="zakat-info" data-aos="fade-up">
+        <div class="container">
+            <h2>Fulfill Your Zakat Obligation</h2>
+            <p>Zakat is one of the five pillars of Islam and a sacred duty for all eligible Muslims. Your Zakat donation helps us distribute funds to those most in need according to Islamic guidelines.</p>
+            <button class="donate-btn" onclick="window.location.href='#zakat'">Learn More About Zakat</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="GENEROUS GIVER FOUNDATION Logo">
+                        <div class="footer-logo-text">
+                            <h3>GENEROUS GIVER FOUNDATION</h3>
+                            <p>Islamic Charity for the Needy</p>
+                        </div>
+                    </div>
+                    <div class="footer-about">
+                        <p>We are a non-profit organization dedicated to serving the needy through Islamic principles of charity, compassion, and social justice.</p>
+                    </div>
+                    <div class="social-links-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Food Distribution</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Orphan Sponsorship</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Water Wells</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Islamic Education</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Emergency Relief</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, Accra, Ghana</p>
+                        <p><i class="fas fa-phone"></i> +233 599 012 288</p>
+                        <p><i class="fas fa-envelope"></i> info@generousgiverfoundation.org</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GENEROUS GIVER FOUNDATION. All rights reserved. | Charity Registration Number: CG123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Donation amount selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        const amountInput = document.getElementById('amount');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                donationOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                // Update amount input
+                amountInput.value = option.dataset.amount;
+            });
+        });
+        
+        // Process donation function
+        function processDonation() {
+            const amount = amountInput.value;
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid donation amount');
+                return;
+            }
+            
+            // Here you would typically process the payment
+            alert(`Thank you for your donation of ₵${amount}! You will be redirected to the payment gateway.`);
+            // window.location.href = 'payment-processor.html?amount=' + amount;
+        }
+    </script>
+</body>
+</html>
